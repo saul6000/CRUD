@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Modelo\DatoPersonasDAO.cs" />
     <Compile Include="Modelo\DatosPersonas.cs" />
+    <Compile Include="Modelo\validar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmIngresar.resx">

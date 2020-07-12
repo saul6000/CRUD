@@ -32,6 +32,7 @@ namespace TIC
             //3 Se habre la conexion y se ejecuta el comando 
             conn.Open();
             int x = comando.ExecuteNonQuery();//ejecutamos el comando
+            
             //4 cerra la conexion 
             conn.Close();
             return x;

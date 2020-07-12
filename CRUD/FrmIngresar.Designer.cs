@@ -130,6 +130,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(223, 22);
             this.txtCedula.TabIndex = 8;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtApellidos
             // 
@@ -138,6 +139,7 @@
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(326, 22);
             this.txtApellidos.TabIndex = 9;
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidos_KeyPress);
             // 
             // txtNombres
             // 
@@ -146,6 +148,7 @@
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(326, 22);
             this.txtNombres.TabIndex = 10;
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // txtCorreo
             // 
@@ -154,6 +157,7 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(286, 22);
             this.txtCorreo.TabIndex = 12;
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
             // 
             // txtEstatura
             // 
@@ -162,6 +166,7 @@
             this.txtEstatura.Name = "txtEstatura";
             this.txtEstatura.Size = new System.Drawing.Size(183, 22);
             this.txtEstatura.TabIndex = 13;
+            this.txtEstatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatura_KeyPress);
             // 
             // txtPeso
             // 
@@ -170,6 +175,7 @@
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(183, 22);
             this.txtPeso.TabIndex = 14;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
             // cmbSexo
             // 
@@ -181,6 +187,7 @@
             this.cmbSexo.Name = "cmbSexo";
             this.cmbSexo.Size = new System.Drawing.Size(183, 24);
             this.cmbSexo.TabIndex = 15;
+            this.cmbSexo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbSexo_KeyPress);
             // 
             // dtFechaNacimineto
             // 
@@ -208,6 +215,7 @@
             this.btnNuevo.TabIndex = 18;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnCerrar
             // 
@@ -217,6 +225,7 @@
             this.btnCerrar.TabIndex = 19;
             this.btnCerrar.Text = "Cerrar ";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // dgPersonas
             // 
@@ -284,11 +293,11 @@
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtEstatura;
         private System.Windows.Forms.TextBox txtPeso;
-        private System.Windows.Forms.ComboBox cmbSexo;
         private System.Windows.Forms.DateTimePicker dtFechaNacimineto;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgPersonas;
+        private System.Windows.Forms.ComboBox cmbSexo;
     }
 }
