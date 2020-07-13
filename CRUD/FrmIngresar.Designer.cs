@@ -223,6 +223,7 @@
             // txtPeso
             // 
             this.txtPeso.Location = new System.Drawing.Point(138, 352);
+            this.txtPeso.MaxLength = 4;
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(326, 22);
             this.txtPeso.TabIndex = 32;
@@ -232,6 +233,7 @@
             // txtEstatura
             // 
             this.txtEstatura.Location = new System.Drawing.Point(138, 300);
+            this.txtEstatura.MaxLength = 4;
             this.txtEstatura.Name = "txtEstatura";
             this.txtEstatura.Size = new System.Drawing.Size(326, 22);
             this.txtEstatura.TabIndex = 31;
@@ -241,6 +243,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(138, 251);
+            this.txtCorreo.MaxLength = 30;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(326, 22);
             this.txtCorreo.TabIndex = 30;
@@ -249,6 +252,7 @@
             // txtNombres
             // 
             this.txtNombres.Location = new System.Drawing.Point(138, 122);
+            this.txtNombres.MaxLength = 60;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(326, 22);
             this.txtNombres.TabIndex = 29;
@@ -258,6 +262,7 @@
             // txtApellidos
             // 
             this.txtApellidos.Location = new System.Drawing.Point(138, 66);
+            this.txtApellidos.MaxLength = 60;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(326, 22);
             this.txtApellidos.TabIndex = 28;
@@ -267,6 +272,7 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(138, 27);
+            this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(326, 22);
             this.txtCedula.TabIndex = 27;
