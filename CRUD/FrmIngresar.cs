@@ -24,9 +24,14 @@ namespace CRUD
 
         private void FrmIngresar_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'tI2020DataSet.Datos_Personas' Puede moverla o quitarla según sea necesario.
+
             //  this.datos_PersonasTableAdapter.Fill(this.tI2020DataSet.Datos_Personas);
-          
+            this.cargarGridPersonas();
+        }
+        private void cargarGridPersonas()
+        {
+            DataTable dt = TIC.DatoPersonasDAO.getAll();
+            this.dgPersonas.DataSource = dt;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -117,14 +122,25 @@ namespace CRUD
             }
 
             int x = TIC.DatoPersonasDAO.creacion(personas);
+            try {   
             if (x > 0)
 
                 MessageBox.Show("Registro Agregado..");
 
             else
                 MessageBox.Show("No se pudo agregar el registro");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.cargarGridPersonas();
+            }
 
-           
+
+
 
         }
 

@@ -1,6 +1,7 @@
 ﻿using CRUD.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,13 @@ namespace TIC
 {
     public static class DatoPersonasDAO
     {
+        private static string cadenaConexion = "Server=JOHNDAY;database=TI2020;user id=sa; password=123456;";
         public static int creacion(DatosPersonas datosPersonas)
         {
        
             
             //1 Configurar la  conexion de datos con una fuente de datos 
-            string cadenaConexion = "Server=JOHNDAY;database=TI2020;user id=sa; password=123456;";
+           // string cadenaConexion = "Server=JOHNDAY;database=TI2020;user id=sa; password=123456;";
             //definir un objeto tipo conexion 
             SqlConnection conn = new SqlConnection(cadenaConexion);
             //2 Definir la opercion a realizar en el motor BDD
@@ -50,6 +52,24 @@ namespace TIC
 
             return x;
             }
+       // public static int crear2 (DatosPersonas datosPersonas) 
+        public static DataTable getAll()
+        {
+        
+            //1. definir y configurar conexión
+            SqlConnection conn = new SqlConnection(cadenaConexion);
+            //2. Definir y Cinfigurar la operacion a realizar en el motor de BDD 
+            //escribir sentencia sql
+            string sql = "select Cedula Cédula,Apellidos + ' ' + Nombres [NombreCompleto],Sexo Género," + "FechaNacimineto,Correo,Estatura_Cm " + "from Datos_Personas "+
+                "order by apellidos,nombres";
+            //2.1 Definir un adptador de datos: es un puente que permite pasa los datos de muestra , hacia el datatable
+            SqlDataAdapter ad = new SqlDataAdapter(sql,conn);
+            //3 recuperamos los datos 
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }    
                    
         }
     
