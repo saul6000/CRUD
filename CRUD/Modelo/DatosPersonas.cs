@@ -18,4 +18,5 @@ namespace TIC
         public decimal Peso { get; set; }
 
     }
+
 }

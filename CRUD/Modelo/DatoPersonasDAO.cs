@@ -1,16 +1,19 @@
-﻿using System;
+﻿using CRUD.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace TIC
 {
     public static class DatoPersonasDAO
     {
         public static int creacion(DatosPersonas datosPersonas)
         {
+       
+            
             //1 Configurar la  conexion de datos con una fuente de datos 
             string cadenaConexion = "Server=JOHNDAY;database=TI2020;user id=sa; password=123456;";
             //definir un objeto tipo conexion 
@@ -31,12 +34,24 @@ namespace TIC
             comando.Parameters.AddWithValue("@Peso", datosPersonas.Peso);
             //3 Se habre la conexion y se ejecuta el comando 
             conn.Open();
-            int x = comando.ExecuteNonQuery();//ejecutamos el comando
-            
+             int x = 0;//ejecutamos el comando
+
+            try
+            {
+                x = comando.ExecuteNonQuery();
+            }
+              catch
+            {
+                MessageBox.Show("Error: Numero de cedula ya registrado");
+            }
+
             //4 cerra la conexion 
             conn.Close();
+
             return x;
+            }
+                   
         }
-         
+    
     }
-}
+

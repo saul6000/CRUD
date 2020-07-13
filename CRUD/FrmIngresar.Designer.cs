@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,19 +37,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.txtNombres = new System.Windows.Forms.TextBox();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtEstatura = new System.Windows.Forms.TextBox();
-            this.txtPeso = new System.Windows.Forms.TextBox();
             this.cmbSexo = new System.Windows.Forms.ComboBox();
             this.dtFechaNacimineto = new System.Windows.Forms.DateTimePicker();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dgPersonas = new System.Windows.Forms.DataGridView();
+            this.datosPersonasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tI2020DataSet = new CRUD.TI2020DataSet();
+            this.datos_PersonasTableAdapter = new CRUD.TI2020DataSetTableAdapters.Datos_PersonasTableAdapter();
+            this.error1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtPeso = new CRUD.Modelo.Errordetxtbox();
+            this.txtEstatura = new CRUD.Modelo.Errordetxtbox();
+            this.txtCorreo = new CRUD.Modelo.Errordetxtbox();
+            this.txtNombres = new CRUD.Modelo.Errordetxtbox();
+            this.txtApellidos = new CRUD.Modelo.Errordetxtbox();
+            this.txtCedula = new CRUD.Modelo.Errordetxtbox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tI2020DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,60 +133,6 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Peso";
             // 
-            // txtCedula
-            // 
-            this.txtCedula.Location = new System.Drawing.Point(140, 27);
-            this.txtCedula.MaxLength = 10;
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(223, 22);
-            this.txtCedula.TabIndex = 8;
-            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Location = new System.Drawing.Point(140, 66);
-            this.txtApellidos.MaxLength = 60;
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(326, 22);
-            this.txtApellidos.TabIndex = 9;
-            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidos_KeyPress);
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.Location = new System.Drawing.Point(138, 119);
-            this.txtNombres.MaxLength = 60;
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(326, 22);
-            this.txtNombres.TabIndex = 10;
-            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(140, 253);
-            this.txtCorreo.MaxLength = 60;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(286, 22);
-            this.txtCorreo.TabIndex = 12;
-            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
-            // 
-            // txtEstatura
-            // 
-            this.txtEstatura.Location = new System.Drawing.Point(182, 300);
-            this.txtEstatura.MaxLength = 3;
-            this.txtEstatura.Name = "txtEstatura";
-            this.txtEstatura.Size = new System.Drawing.Size(183, 22);
-            this.txtEstatura.TabIndex = 13;
-            this.txtEstatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatura_KeyPress);
-            // 
-            // txtPeso
-            // 
-            this.txtPeso.Location = new System.Drawing.Point(182, 354);
-            this.txtPeso.MaxLength = 6;
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(183, 22);
-            this.txtPeso.TabIndex = 14;
-            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
-            // 
             // cmbSexo
             // 
             this.cmbSexo.FormattingEnabled = true;
@@ -199,7 +155,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(610, 47);
+            this.btnGuardar.Location = new System.Drawing.Point(844, 27);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(118, 55);
             this.btnGuardar.TabIndex = 17;
@@ -209,7 +165,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(610, 168);
+            this.btnNuevo.Location = new System.Drawing.Point(844, 156);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(118, 55);
             this.btnNuevo.TabIndex = 18;
@@ -219,7 +175,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(610, 284);
+            this.btnCerrar.Location = new System.Drawing.Point(844, 300);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(118, 55);
             this.btnCerrar.TabIndex = 19;
@@ -230,7 +186,6 @@
             // dgPersonas
             // 
             this.dgPersonas.AllowUserToAddRows = false;
-            this.dgPersonas.AllowUserToDeleteRows = false;
             this.dgPersonas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -240,26 +195,100 @@
             this.dgPersonas.ReadOnly = true;
             this.dgPersonas.RowHeadersWidth = 51;
             this.dgPersonas.RowTemplate.Height = 24;
-            this.dgPersonas.Size = new System.Drawing.Size(930, 119);
+            this.dgPersonas.Size = new System.Drawing.Size(1185, 119);
             this.dgPersonas.TabIndex = 20;
+            // 
+            // datosPersonasBindingSource
+            // 
+            this.datosPersonasBindingSource.DataMember = "Datos_Personas";
+            this.datosPersonasBindingSource.DataSource = this.tI2020DataSet;
+            // 
+            // tI2020DataSet
+            // 
+            this.tI2020DataSet.DataSetName = "TI2020DataSet";
+            this.tI2020DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // datos_PersonasTableAdapter
+            // 
+            this.datos_PersonasTableAdapter.ClearBeforeFill = true;
+            // 
+            // error1
+            // 
+            this.error1.ContainerControl = this;
+            // 
+            // errorP
+            // 
+            this.errorP.ContainerControl = this;
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Location = new System.Drawing.Point(138, 352);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(326, 22);
+            this.txtPeso.TabIndex = 32;
+            this.txtPeso.validar = false;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
+            // 
+            // txtEstatura
+            // 
+            this.txtEstatura.Location = new System.Drawing.Point(138, 300);
+            this.txtEstatura.Name = "txtEstatura";
+            this.txtEstatura.Size = new System.Drawing.Size(326, 22);
+            this.txtEstatura.TabIndex = 31;
+            this.txtEstatura.validar = false;
+            this.txtEstatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatura_KeyPress);
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(138, 251);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(326, 22);
+            this.txtCorreo.TabIndex = 30;
+            this.txtCorreo.validar = false;
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.Location = new System.Drawing.Point(138, 122);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(326, 22);
+            this.txtNombres.TabIndex = 29;
+            this.txtNombres.validar = false;
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
+            // 
+            // txtApellidos
+            // 
+            this.txtApellidos.Location = new System.Drawing.Point(138, 66);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(326, 22);
+            this.txtApellidos.TabIndex = 28;
+            this.txtApellidos.validar = false;
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(138, 27);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(326, 22);
+            this.txtCedula.TabIndex = 27;
+            this.txtCedula.validar = false;
             // 
             // FrmIngresar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 523);
-            this.Controls.Add(this.dgPersonas);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.dtFechaNacimineto);
-            this.Controls.Add(this.cmbSexo);
+            this.ClientSize = new System.Drawing.Size(1212, 523);
             this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.txtEstatura);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.txtCedula);
+            this.Controls.Add(this.dgPersonas);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.dtFechaNacimineto);
+            this.Controls.Add(this.cmbSexo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -272,6 +301,10 @@
             this.Text = "Registro de Datos Personales ";
             this.Load += new System.EventHandler(this.FrmIngresar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tI2020DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,17 +320,22 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.TextBox txtNombres;
-        private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.TextBox txtEstatura;
-        private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.DateTimePicker dtFechaNacimineto;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgPersonas;
         private System.Windows.Forms.ComboBox cmbSexo;
+        private TI2020DataSet tI2020DataSet;
+        private System.Windows.Forms.BindingSource datosPersonasBindingSource;
+        private TI2020DataSetTableAdapters.Datos_PersonasTableAdapter datos_PersonasTableAdapter;
+        private System.Windows.Forms.ErrorProvider error1;
+        public System.Windows.Forms.ErrorProvider errorP;
+        private Modelo.Errordetxtbox txtPeso;
+        private Modelo.Errordetxtbox txtEstatura;
+        private Modelo.Errordetxtbox txtCorreo;
+        private Modelo.Errordetxtbox txtNombres;
+        private Modelo.Errordetxtbox txtApellidos;
+        private Modelo.Errordetxtbox txtCedula;
     }
 }
