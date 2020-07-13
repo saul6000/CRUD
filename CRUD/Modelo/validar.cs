@@ -50,5 +50,21 @@ namespace Tarea_ListaGénericas
 
             }
         }
-    }
+        public static bool ValidarCampoDecimal(TextBox CajaDeTexto)
+        {
+            try
+            {
+                decimal d = Convert.ToDecimal(CajaDeTexto.Text);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                CajaDeTexto.Text = "0";
+                CajaDeTexto.Select(0, CajaDeTexto.Text.Length);
+                return false;
+            }
+        }
 }
+
+}
+

@@ -152,7 +152,8 @@ namespace CRUD
 
         private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
+            Tarea_ListaGénericas.validar.ValidarCampoDecimal((TextBox)sender);
         }
 
         private void cmbSexo_KeyPress(object sender, KeyPressEventArgs e)

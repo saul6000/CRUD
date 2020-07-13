@@ -223,7 +223,7 @@
             // txtPeso
             // 
             this.txtPeso.Location = new System.Drawing.Point(138, 352);
-            this.txtPeso.MaxLength = 4;
+            this.txtPeso.MaxLength = 7;
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(326, 22);
             this.txtPeso.TabIndex = 32;
