@@ -48,12 +48,12 @@
             this.datos_PersonasTableAdapter = new CRUD.TI2020DataSetTableAdapters.Datos_PersonasTableAdapter();
             this.error1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtPeso = new CRUD.Modelo.Errordetxtbox();
-            this.txtEstatura = new CRUD.Modelo.Errordetxtbox();
-            this.txtCorreo = new CRUD.Modelo.Errordetxtbox();
-            this.txtNombres = new CRUD.Modelo.Errordetxtbox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtApellidos = new CRUD.Modelo.Errordetxtbox();
-            this.txtCedula = new CRUD.Modelo.Errordetxtbox();
+            this.txtNombres = new CRUD.Modelo.Errordetxtbox();
+            this.txtCorreo = new CRUD.Modelo.Errordetxtbox();
+            this.txtEstatura = new CRUD.Modelo.Errordetxtbox();
+            this.txtPeso = new CRUD.Modelo.Errordetxtbox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tI2020DataSet)).BeginInit();
@@ -155,7 +155,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(844, 27);
+            this.btnGuardar.Location = new System.Drawing.Point(603, 27);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(118, 55);
             this.btnGuardar.TabIndex = 17;
@@ -165,7 +165,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(844, 156);
+            this.btnNuevo.Location = new System.Drawing.Point(603, 152);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(118, 55);
             this.btnNuevo.TabIndex = 18;
@@ -175,7 +175,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(844, 300);
+            this.btnCerrar.Location = new System.Drawing.Point(603, 284);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(118, 55);
             this.btnCerrar.TabIndex = 19;
@@ -220,63 +220,58 @@
             // 
             this.errorP.ContainerControl = this;
             // 
-            // txtPeso
-            // 
-            this.txtPeso.Location = new System.Drawing.Point(138, 352);
-            this.txtPeso.MaxLength = 7;
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(326, 22);
-            this.txtPeso.TabIndex = 32;
-            this.txtPeso.validar = false;
-            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
-            // 
-            // txtEstatura
-            // 
-            this.txtEstatura.Location = new System.Drawing.Point(138, 300);
-            this.txtEstatura.MaxLength = 4;
-            this.txtEstatura.Name = "txtEstatura";
-            this.txtEstatura.Size = new System.Drawing.Size(326, 22);
-            this.txtEstatura.TabIndex = 31;
-            this.txtEstatura.validar = false;
-            this.txtEstatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatura_KeyPress);
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(138, 251);
-            this.txtCorreo.MaxLength = 30;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(326, 22);
-            this.txtCorreo.TabIndex = 30;
-            this.txtCorreo.validar = false;
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.Location = new System.Drawing.Point(138, 122);
-            this.txtNombres.MaxLength = 60;
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(326, 22);
-            this.txtNombres.TabIndex = 29;
-            this.txtNombres.validar = false;
-            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Location = new System.Drawing.Point(138, 66);
-            this.txtApellidos.MaxLength = 60;
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(326, 22);
-            this.txtApellidos.TabIndex = 28;
-            this.txtApellidos.validar = false;
-            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
-            // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(138, 27);
+            this.txtCedula.Location = new System.Drawing.Point(140, 22);
             this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(326, 22);
-            this.txtCedula.TabIndex = 27;
-            this.txtCedula.validar = false;
+            this.txtCedula.TabIndex = 33;
+            // 
+            // txtApellidos
+            // 
+            this.txtApellidos.Location = new System.Drawing.Point(140, 66);
+            this.txtApellidos.MaxLength = 60;
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(326, 22);
+            this.txtApellidos.TabIndex = 34;
+            this.txtApellidos.validar = false;
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.Location = new System.Drawing.Point(140, 117);
+            this.txtNombres.MaxLength = 60;
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(326, 22);
+            this.txtNombres.TabIndex = 35;
+            this.txtNombres.validar = false;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(140, 242);
+            this.txtCorreo.MaxLength = 40;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(326, 22);
+            this.txtCorreo.TabIndex = 36;
+            this.txtCorreo.validar = false;
+            // 
+            // txtEstatura
+            // 
+            this.txtEstatura.Location = new System.Drawing.Point(140, 300);
+            this.txtEstatura.MaxLength = 3;
+            this.txtEstatura.Name = "txtEstatura";
+            this.txtEstatura.Size = new System.Drawing.Size(326, 22);
+            this.txtEstatura.TabIndex = 37;
+            this.txtEstatura.validar = false;
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Location = new System.Drawing.Point(140, 357);
+            this.txtPeso.MaxLength = 7;
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(326, 22);
+            this.txtPeso.TabIndex = 38;
+            this.txtPeso.validar = false;
             // 
             // FrmIngresar
             // 
@@ -337,11 +332,11 @@
         private TI2020DataSetTableAdapters.Datos_PersonasTableAdapter datos_PersonasTableAdapter;
         private System.Windows.Forms.ErrorProvider error1;
         public System.Windows.Forms.ErrorProvider errorP;
+        private System.Windows.Forms.TextBox txtCedula;
         private Modelo.Errordetxtbox txtPeso;
         private Modelo.Errordetxtbox txtEstatura;
         private Modelo.Errordetxtbox txtCorreo;
         private Modelo.Errordetxtbox txtNombres;
         private Modelo.Errordetxtbox txtApellidos;
-        private Modelo.Errordetxtbox txtCedula;
     }
 }

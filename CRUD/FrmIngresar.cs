@@ -39,17 +39,17 @@ namespace CRUD
 
             TIC.DatosPersonas personas = new TIC.DatosPersonas();
 
-            if (txtCedula.Text.Trim() == "")
+          /*  if (txtCedula.Text.Trim() == "")
             {
                 errorP.SetError(txtCedula, "Introduzca Numero de Cedula...");
-                txtApellidos.Focus();
+                txtCedula.Focus();
                 return;
             }
 
             else
             {
                 errorP.Clear();
-            }
+            }*/
 
             if (txtApellidos.Text.Trim() == "")
             {
@@ -113,6 +113,7 @@ namespace CRUD
                 
             }
             
+
           try{  
                 personas.Peso = decimal.Parse(txtPeso.Text);
             }
@@ -121,9 +122,16 @@ namespace CRUD
                 MessageBox.Show("Parametro de Peso no Ingresado");
             }
 
-            int x = TIC.DatoPersonasDAO.creacion(personas);
+          //  
+            int x = 0;
             try {   
-            if (x > 0)
+                if (TIC.DatoPersonasDAO.existeCedula(this.txtCedula.Text))
+                {
+                    MessageBox.Show("Esa Cedula ya exite...");
+                    return; //abandonar;
+                }
+                x = TIC.DatoPersonasDAO.creacion(personas);
+                if (x > 0)
 
                 MessageBox.Show("Registro Agregado..");
 
@@ -132,7 +140,7 @@ namespace CRUD
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message.ToString());
             }
             finally
             {
@@ -188,12 +196,12 @@ namespace CRUD
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            this.txtCedula.Clear();
-            this.txtApellidos.Clear();
-            this.txtNombres.Clear();
             this.txtCorreo.Clear();
             this.txtEstatura.Clear();
+            this.txtNombres.Clear();
+            this.txtApellidos.Clear();
             this.txtPeso.Clear();
+            this.txtCedula.Clear();
 
         }
 
@@ -214,34 +222,15 @@ namespace CRUD
 
         private void txtEstatura_TextChanged(object sender, EventArgs e)
         {
-            this.errorP.Clear();
+           
 
-            foreach (char letra in this.txtEstatura.Text)
-            {
-                if (!char.IsDigit(letra))
-                {
-                    this.errorP.SetError(this.txtEstatura, "El campo sólo acepta campos numéricos");
-                    break;
-                }
-               
-                
-            }
         }
 
         private void txtPeso_TextChanged(object sender, EventArgs e)
         {
-            this.errorP.Clear();
+          
 
-            foreach (char letra in this.txtEstatura.Text)
-            {
-                if (!char.IsDigit(letra))
-                {
-                    this.errorP.SetError(this.txtEstatura, "El campo sólo acepta campos numéricos");
-                    break;
-                }
-
-
-            }
+           
         }
     }
 }
