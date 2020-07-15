@@ -88,14 +88,14 @@ namespace TIC
         {
             SqlConnection conn = new SqlConnection(cadenaConexion);
             conn.Open();
-            int flag = 0;
+            int x = 0;
             string cadena = "delete from Datos_Personas  where Cedula =" + scedula;
             SqlCommand comando = new SqlCommand(cadena, conn);
             
-            flag = comando.ExecuteNonQuery();
+            x = comando.ExecuteNonQuery();
             conn.Close();
             
-            return flag;
+            return x;
 
         }
       
