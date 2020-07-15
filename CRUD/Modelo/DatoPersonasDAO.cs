@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,7 +53,7 @@ namespace TIC
             SqlConnection conn = new SqlConnection(cadenaConexion);
             //2. Definir y Cinfigurar la operacion a realizar en el motor de BDD 
             //escribir sentencia sql
-            string sql = "select Cedula Cédula,Apellidos + ' ' + Nombres [NombreCompleto],Sexo Género," + "FechaNacimineto,Correo,Estatura_Cm " + "from Datos_Personas " +
+            string sql = "select  Cedula Cédula,Apellidos + ' ' + Nombres [NombreCompleto],Sexo Género," + "FechaNacimineto,Correo,Estatura_Cm " + "from Datos_Personas " +
                 "order by apellidos,nombres";
             //2.1 Definir un adptador de datos: es un puente que permite pasa los datos de muestra , hacia el datatable
             SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
@@ -80,6 +81,21 @@ namespace TIC
             if (dt.Rows.Count > 0)
                 existe = true;
             return existe;
+
+        }
+        public static int btbdelete(string scedula)
+
+        {
+            SqlConnection conn = new SqlConnection(cadenaConexion);
+            conn.Open();
+            int flag = 0;
+            string cadena = "delete from Datos_Personas  where Cedula =" + scedula;
+            SqlCommand comando = new SqlCommand(cadena, conn);
+            
+            flag = comando.ExecuteNonQuery();
+            conn.Close();
+            
+            return flag;
 
         }
       

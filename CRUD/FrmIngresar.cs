@@ -11,12 +11,14 @@ using System.Windows.Forms;
 using TIC;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Data.SqlClient;
 
 namespace CRUD
 {
     public partial class FrmIngresar : Form
     {
-        
+        private static string cadenaConexion = "Server=JOHNDAY;database=TI2020;user id=sa; password=123456;";
+
         public FrmIngresar()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace CRUD
 
             TIC.DatosPersonas personas = new TIC.DatosPersonas();
 
-          /*  if (txtCedula.Text.Trim() == "")
+            if (txtCedula.Text.Trim() == "")
             {
                 errorP.SetError(txtCedula, "Introduzca Numero de Cedula...");
                 txtCedula.Focus();
@@ -49,7 +51,7 @@ namespace CRUD
             else
             {
                 errorP.Clear();
-            }*/
+            }
 
             if (txtApellidos.Text.Trim() == "")
             {
@@ -82,7 +84,15 @@ namespace CRUD
             {
                 errorP.Clear();
             }
-           
+ 
+            if (this.cmbSexo.Text == "Femenino")
+            {
+                this.cmbSexo.Text = "Femenino";
+            }
+            else
+            {
+                this.cmbSexo.Text = "Masculino";
+            }
             personas.Cedula = txtCedula.Text;                                  
             personas.Apellidos = txtApellidos.Text;         
             personas.Nombres = txtNombres.Text;          
@@ -196,12 +206,7 @@ namespace CRUD
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            this.txtCorreo.Clear();
-            this.txtEstatura.Clear();
-            this.txtNombres.Clear();
-            this.txtApellidos.Clear();
-            this.txtPeso.Clear();
-            this.txtCedula.Clear();
+            TIC.DatosPersonas comando = new TIC.DatosPersonas();
 
         }
 
@@ -231,6 +236,29 @@ namespace CRUD
           
 
            
+        }
+
+        private void btbdelete_Click(object sender, EventArgs e)
+        {
+         
+            int x = TIC.DatoPersonasDAO.btbdelete(txtdelete.Text);
+            try {   
+            if (x == 1)
+            {
+              
+                MessageBox.Show("Borrado completo");
+                this.cargarGridPersonas();
+
+            }
+            else
+            {
+                MessageBox.Show("Error al intentar eliminar ");
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

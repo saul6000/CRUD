@@ -49,11 +49,13 @@
             this.error1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtApellidos = new CRUD.Modelo.Errordetxtbox();
-            this.txtNombres = new CRUD.Modelo.Errordetxtbox();
-            this.txtCorreo = new CRUD.Modelo.Errordetxtbox();
-            this.txtEstatura = new CRUD.Modelo.Errordetxtbox();
+            this.btbdelete = new System.Windows.Forms.Button();
+            this.txtdelete = new CRUD.Modelo.Errordetxtbox();
             this.txtPeso = new CRUD.Modelo.Errordetxtbox();
+            this.txtEstatura = new CRUD.Modelo.Errordetxtbox();
+            this.txtCorreo = new CRUD.Modelo.Errordetxtbox();
+            this.txtNombres = new CRUD.Modelo.Errordetxtbox();
+            this.txtApellidos = new CRUD.Modelo.Errordetxtbox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tI2020DataSet)).BeginInit();
@@ -155,7 +157,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(603, 27);
+            this.btnGuardar.Location = new System.Drawing.Point(514, 52);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(118, 55);
             this.btnGuardar.TabIndex = 17;
@@ -165,7 +167,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(603, 152);
+            this.btnNuevo.Location = new System.Drawing.Point(514, 122);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(118, 55);
             this.btnNuevo.TabIndex = 18;
@@ -175,7 +177,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(603, 284);
+            this.btnCerrar.Location = new System.Drawing.Point(514, 200);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(118, 55);
             this.btnCerrar.TabIndex = 19;
@@ -190,12 +192,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPersonas.Location = new System.Drawing.Point(15, 382);
+            this.dgPersonas.Location = new System.Drawing.Point(15, 392);
             this.dgPersonas.Name = "dgPersonas";
             this.dgPersonas.ReadOnly = true;
             this.dgPersonas.RowHeadersWidth = 51;
             this.dgPersonas.RowTemplate.Height = 24;
-            this.dgPersonas.Size = new System.Drawing.Size(1185, 119);
+            this.dgPersonas.Size = new System.Drawing.Size(908, 119);
             this.dgPersonas.TabIndex = 20;
             // 
             // datosPersonasBindingSource
@@ -227,24 +229,46 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(326, 22);
             this.txtCedula.TabIndex = 33;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
-            // txtApellidos
+            // btbdelete
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(140, 66);
-            this.txtApellidos.MaxLength = 60;
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(326, 22);
-            this.txtApellidos.TabIndex = 34;
-            this.txtApellidos.validar = false;
+            this.btbdelete.Location = new System.Drawing.Point(514, 289);
+            this.btbdelete.Name = "btbdelete";
+            this.btbdelete.Size = new System.Drawing.Size(141, 45);
+            this.btbdelete.TabIndex = 39;
+            this.btbdelete.Text = "Eliminar  Datos";
+            this.btbdelete.UseVisualStyleBackColor = true;
+            this.btbdelete.Click += new System.EventHandler(this.btbdelete_Click);
             // 
-            // txtNombres
+            // txtdelete
             // 
-            this.txtNombres.Location = new System.Drawing.Point(140, 117);
-            this.txtNombres.MaxLength = 60;
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(326, 22);
-            this.txtNombres.TabIndex = 35;
-            this.txtNombres.validar = false;
+            this.txtdelete.Location = new System.Drawing.Point(661, 302);
+            this.txtdelete.MaxLength = 10;
+            this.txtdelete.Name = "txtdelete";
+            this.txtdelete.Size = new System.Drawing.Size(170, 22);
+            this.txtdelete.TabIndex = 40;
+            this.txtdelete.validar = false;
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Location = new System.Drawing.Point(140, 357);
+            this.txtPeso.MaxLength = 7;
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(326, 22);
+            this.txtPeso.TabIndex = 38;
+            this.txtPeso.validar = false;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
+            // 
+            // txtEstatura
+            // 
+            this.txtEstatura.Location = new System.Drawing.Point(140, 300);
+            this.txtEstatura.MaxLength = 3;
+            this.txtEstatura.Name = "txtEstatura";
+            this.txtEstatura.Size = new System.Drawing.Size(326, 22);
+            this.txtEstatura.TabIndex = 37;
+            this.txtEstatura.validar = false;
+            this.txtEstatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatura_KeyPress);
             // 
             // txtCorreo
             // 
@@ -255,29 +279,33 @@
             this.txtCorreo.TabIndex = 36;
             this.txtCorreo.validar = false;
             // 
-            // txtEstatura
+            // txtNombres
             // 
-            this.txtEstatura.Location = new System.Drawing.Point(140, 300);
-            this.txtEstatura.MaxLength = 3;
-            this.txtEstatura.Name = "txtEstatura";
-            this.txtEstatura.Size = new System.Drawing.Size(326, 22);
-            this.txtEstatura.TabIndex = 37;
-            this.txtEstatura.validar = false;
+            this.txtNombres.Location = new System.Drawing.Point(140, 117);
+            this.txtNombres.MaxLength = 60;
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(326, 22);
+            this.txtNombres.TabIndex = 35;
+            this.txtNombres.validar = false;
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
-            // txtPeso
+            // txtApellidos
             // 
-            this.txtPeso.Location = new System.Drawing.Point(140, 357);
-            this.txtPeso.MaxLength = 7;
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(326, 22);
-            this.txtPeso.TabIndex = 38;
-            this.txtPeso.validar = false;
+            this.txtApellidos.Location = new System.Drawing.Point(140, 66);
+            this.txtApellidos.MaxLength = 60;
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(326, 22);
+            this.txtApellidos.TabIndex = 34;
+            this.txtApellidos.validar = false;
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // FrmIngresar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1212, 523);
+            this.ClientSize = new System.Drawing.Size(933, 523);
+            this.Controls.Add(this.txtdelete);
+            this.Controls.Add(this.btbdelete);
             this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.txtEstatura);
             this.Controls.Add(this.txtCorreo);
@@ -338,5 +366,7 @@
         private Modelo.Errordetxtbox txtCorreo;
         private Modelo.Errordetxtbox txtNombres;
         private Modelo.Errordetxtbox txtApellidos;
+        private Modelo.Errordetxtbox txtdelete;
+        private System.Windows.Forms.Button btbdelete;
     }
 }
