@@ -17,7 +17,7 @@ namespace CRUD
 {
     public partial class FrmIngresar : Form
     {
-        private static string cadenaConexion = "Server=JOHNDAY;database=TI2020;user id=sa; password=123456;";
+       
 
         public FrmIngresar()
         {
