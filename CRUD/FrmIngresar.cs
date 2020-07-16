@@ -247,20 +247,22 @@ namespace CRUD
 
         private void btbdelete_Click(object sender, EventArgs e)
         {
-         
-            int x = TIC.DatoPersonasDAO.btbdelete(txtdelete.Text);
-            try {   
-            if (x == 1)
+            int x = 0;
+           
+            try {
+                x = TIC.DatoPersonasDAO.btbdelete(txtdelete.Text);
+                if (x == 1)
             {
               
                 MessageBox.Show("Registro Borrado");
-             
+                    
 
             }
             else
             {
                 MessageBox.Show("Numero de Cedula no registrado ");
-            }
+                 
+                }
             }
             catch (Exception ex)
             {
@@ -270,6 +272,13 @@ namespace CRUD
             {
                 this.cargarGridPersonas();
             }
+        }
+
+        private void dgPersonas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+                txtdelete.Text = dgPersonas.CurrentCell.Value.ToString();
+           
         }
     }
 }

@@ -199,6 +199,7 @@
             this.dgPersonas.RowTemplate.Height = 24;
             this.dgPersonas.Size = new System.Drawing.Size(908, 119);
             this.dgPersonas.TabIndex = 20;
+            this.dgPersonas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPersonas_CellClick);
             // 
             // datosPersonasBindingSource
             // 
@@ -249,6 +250,7 @@
             this.txtdelete.Size = new System.Drawing.Size(170, 22);
             this.txtdelete.TabIndex = 40;
             this.txtdelete.validar = false;
+            this.txtdelete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtPeso
             // 
