@@ -90,11 +90,9 @@ namespace TIC
             conn.Open();
             int x = 0;
             string sql = "delete from Datos_Personas  where Cedula =" + scedula;
-            SqlCommand comando = new SqlCommand(sql, conn);
-            
+            SqlCommand comando = new SqlCommand(sql, conn);            
             x = comando.ExecuteNonQuery();
             conn.Close();
-            
             return x;
 
         }

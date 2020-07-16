@@ -206,7 +206,14 @@ namespace CRUD
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            TIC.DatosPersonas comando = new TIC.DatosPersonas();
+            txtdelete.Clear();
+            txtCorreo.Clear();
+            txtNombres.Clear();
+            txtApellidos.Clear();
+            txtCedula.Clear();
+            txtPeso.Clear();
+            txtEstatura.Clear();
+            
 
         }
 
