@@ -254,7 +254,7 @@ namespace CRUD
             {
               
                 MessageBox.Show("Registro Borrado");
-                this.cargarGridPersonas();
+             
 
             }
             else
@@ -265,6 +265,10 @@ namespace CRUD
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
+            }
+            finally
+            {
+                this.cargarGridPersonas();
             }
         }
     }
