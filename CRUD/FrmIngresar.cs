@@ -264,9 +264,9 @@ namespace CRUD
                  
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("Este campo no es el numero de cedula por favor solo ingrese su numero de cedula");
             }
             finally
             {
