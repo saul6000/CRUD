@@ -253,13 +253,13 @@ namespace CRUD
             if (x == 1)
             {
               
-                MessageBox.Show("Borrado completo");
+                MessageBox.Show("Registro Borrado");
                 this.cargarGridPersonas();
 
             }
             else
             {
-                MessageBox.Show("Error al intentar eliminar ");
+                MessageBox.Show("Numero de Cedula no registrado ");
             }
             }
             catch (Exception ex)
