@@ -56,6 +56,8 @@
             this.txtCorreo = new CRUD.Modelo.Errordetxtbox();
             this.txtNombres = new CRUD.Modelo.Errordetxtbox();
             this.txtApellidos = new CRUD.Modelo.Errordetxtbox();
+            this.linkModificar = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.linkEliminar = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tI2020DataSet)).BeginInit();
@@ -191,7 +193,11 @@
             this.dgPersonas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgPersonas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.linkModificar,
+            this.linkEliminar});
             this.dgPersonas.Location = new System.Drawing.Point(15, 392);
             this.dgPersonas.Name = "dgPersonas";
             this.dgPersonas.ReadOnly = true;
@@ -200,6 +206,7 @@
             this.dgPersonas.Size = new System.Drawing.Size(908, 119);
             this.dgPersonas.TabIndex = 20;
             this.dgPersonas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPersonas_CellClick);
+            this.dgPersonas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPersonas_CellContentClick);
             // 
             // datosPersonasBindingSource
             // 
@@ -301,6 +308,26 @@
             this.txtApellidos.validar = false;
             this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
+            // linkModificar
+            // 
+            this.linkModificar.HeaderText = "Acción";
+            this.linkModificar.MinimumWidth = 6;
+            this.linkModificar.Name = "linkModificar";
+            this.linkModificar.ReadOnly = true;
+            this.linkModificar.Text = "Modificar";
+            this.linkModificar.UseColumnTextForLinkValue = true;
+            this.linkModificar.Width = 56;
+            // 
+            // linkEliminar
+            // 
+            this.linkEliminar.HeaderText = "Acción";
+            this.linkEliminar.MinimumWidth = 6;
+            this.linkEliminar.Name = "linkEliminar";
+            this.linkEliminar.ReadOnly = true;
+            this.linkEliminar.Text = "Eliminar";
+            this.linkEliminar.UseColumnTextForLinkValue = true;
+            this.linkEliminar.Width = 56;
+            // 
             // FrmIngresar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -370,5 +397,7 @@
         private Modelo.Errordetxtbox txtApellidos;
         private Modelo.Errordetxtbox txtdelete;
         private System.Windows.Forms.Button btbdelete;
+        private System.Windows.Forms.DataGridViewLinkColumn linkModificar;
+        private System.Windows.Forms.DataGridViewLinkColumn linkEliminar;
     }
 }

@@ -276,9 +276,43 @@ namespace CRUD
 
         private void dgPersonas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+          try{  
                 txtdelete.Text = dgPersonas.CurrentCell.Value.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("");
+            }
+
+        }
+
+        private void dgPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+           // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());
            
+           
+            DataGridView grid = (DataGridView)sender;
+            if (grid.Columns[e.ColumnIndex].Name == "linkEliminar")
+            {
+               
+                int fila = e.RowIndex;
+                
+                // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());
+                string cedula = dgPersonas[2, fila].Value.ToString();
+                
+                string confirmMessage = string.Format("¿Está seguro de que desea eliminar a la persona de nombre {0}?"
+                    , grid.Rows[fila].Cells[2].Value);
+                if (MessageBox.Show(confirmMessage, "Eliminar Persona", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    MessageBox.Show("Registro Eliminado Exitosamente");
+                    grid.Rows.RemoveAt(fila);
+                    int x = TIC.DatoPersonasDAO.btbdelete(cedula);
+                  
+                    
+                }
+            }
         }
     }
 }
