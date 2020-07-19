@@ -95,8 +95,11 @@ namespace CRUD
             personas.Estatura = int.Parse(txtEstatura.Text);
             personas.Peso = decimal.Parse(txtPeso.Text);
             int x = 0;
+           
+            
             try
             {
+               
 
                 x = TIC.DatoPersonasDAO.update(personas);
                 if (x > 0)
@@ -114,10 +117,11 @@ namespace CRUD
             }
             finally
             {
-               
+                    btbCambios.Enabled = true;
                 this.Close();
             }
-           
+            
+
 
         }
 
