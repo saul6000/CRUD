@@ -19,27 +19,20 @@ namespace CRUD
     public partial class FrmIngresar : Form
     {
        
-
         public FrmIngresar()
         {
             InitializeComponent();
            
         }
-
         private void FrmIngresar_Load(object sender, EventArgs e)
-        {
-
-            //  this.datos_PersonasTableAdapter.Fill(this.tI2020DataSet.Datos_Personas);
+        {         
             this.cargarGridPersonas();
-            
-
         }
        private void cargarGridPersonas()
         {
             DataTable dt = TIC.DatoPersonasDAO.getAll();
             this.dgPersonas.DataSource = dt;
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
@@ -62,7 +55,6 @@ namespace CRUD
                 txtApellidos.Focus();
                 return;
             }
-
             else
             {
                 errorP.Clear();
@@ -109,7 +101,6 @@ namespace CRUD
                 btnGuardar.Visible = true;
 
             }
-
             personas.Cedula = txtCedula.Text;                                  
             personas.Apellidos = txtApellidos.Text;         
             personas.Nombres = txtNombres.Text;          
@@ -125,8 +116,6 @@ namespace CRUD
                 MessageBox.Show("Parametro de Estatura no ingresada");
                 
             }
-            
-
           try{  
                 personas.Peso = decimal.Parse(txtPeso.Text);
             }
@@ -159,19 +148,11 @@ namespace CRUD
             {
                 this.cargarGridPersonas();
             }
-
-
-
-
         }
-
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             Tarea_ListaGénericas.validar.Numeros(e);
         }
-
-      
-
         private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
         {
             Tarea_ListaGénericas.validar.letra(e);
@@ -181,19 +162,16 @@ namespace CRUD
         {
            
         }
-
         private void txtEstatura_KeyPress(object sender, KeyPressEventArgs e)
         {
             Tarea_ListaGénericas.validar.Numeros(e);
         }
-
-        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+     private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             Tarea_ListaGénericas.validar.ValidarCampoDecimal((TextBox)sender);
         }
-
-        private void cmbSexo_KeyPress(object sender, KeyPressEventArgs e)
+       private void cmbSexo_KeyPress(object sender, KeyPressEventArgs e)
         {
               
             if (cmbSexo.MaxLength == 0)
@@ -203,8 +181,6 @@ namespace CRUD
             if (cmbSexo.Text == "") { 
                 Tarea_ListaGénericas.validar.letra(e); 
             }
-         
-
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -219,14 +195,10 @@ namespace CRUD
             
 
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
- 
-
         private void btbdelete_Click(object sender, EventArgs e)
         {
             int x = 0;
@@ -255,21 +227,20 @@ namespace CRUD
                 this.cargarGridPersonas();
             }
         }
-
         private void dgPersonas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-         /*try{  
+         try{  
                 txtdelete.Text = dgPersonas.CurrentCell.Value.ToString();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("");
-            }*/
-            
+                MessageBox.Show(ex.Message.ToString());
+            }           
         }
        private void dgPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {         
-           // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());           
+        {
+
+         try {            
             DataGridView grid = (DataGridView)sender;
             if (grid.Columns[e.ColumnIndex].Name == "linkEliminar")
             {               
@@ -285,8 +256,7 @@ namespace CRUD
                     int x = TIC.DatoPersonasDAO.btbdelete(cedula);
                   
                     
-                }              
-                
+                }                             
             }
             if (grid.Columns[e.ColumnIndex].Name == "linkModificar")
             {
@@ -306,7 +276,11 @@ namespace CRUD
                     asereje.ShowDialog();
                     cargarGridPersonas();
                 }
-
+            }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 
@@ -314,3 +288,4 @@ namespace CRUD
      
     }
 }
+// MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());  
