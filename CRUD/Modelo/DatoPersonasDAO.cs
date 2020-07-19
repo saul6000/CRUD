@@ -90,8 +90,9 @@ namespace TIC
             SqlConnection conn = new SqlConnection(cadenaConexion);
           
       
-            string sql = "delete from Datos_Personas  where Cedula =" + scedula+"";
+            string sql = "delete from Datos_Personas  where Cedula=@Cedula";
             SqlCommand comando = new SqlCommand(sql, conn);
+            comando.Parameters.AddWithValue("@Cedula", scedula);
             conn.Open();
           int  x = comando.ExecuteNonQuery();
             conn.Close();

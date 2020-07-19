@@ -44,7 +44,6 @@ namespace CRUD
         {
 
             TIC.DatosPersonas personas = new TIC.DatosPersonas();
-
             if (txtCedula.Text.Trim() == "")
             {
                 errorP.SetError(txtCedula, "Introduzca Numero de Cedula...");
@@ -88,7 +87,7 @@ namespace CRUD
             {
                 errorP.Clear();
             }
- 
+
             if (this.cmbSexo.Text == "Femenino")
             {
                 this.cmbSexo.Text = "Femenino";
@@ -97,12 +96,6 @@ namespace CRUD
             {
                 this.cmbSexo.Text = "Masculino";
             }
-            personas.Cedula = txtCedula.Text;                                  
-            personas.Apellidos = txtApellidos.Text;         
-            personas.Nombres = txtNombres.Text;          
-            personas.Sexo = cmbSexo.Text;
-            personas.FechaNacimineto = dtFechaNacimineto.Value;
-
             validar_correo ps = new validar_correo();
             if (ps.Email_Valido(this.txtCorreo.Text) == false)
             {
@@ -116,6 +109,12 @@ namespace CRUD
                 btnGuardar.Visible = true;
 
             }
+
+            personas.Cedula = txtCedula.Text;                                  
+            personas.Apellidos = txtApellidos.Text;         
+            personas.Nombres = txtNombres.Text;          
+            personas.Sexo = cmbSexo.Text;
+            personas.FechaNacimineto = dtFechaNacimineto.Value;
             personas.Correo = txtCorreo.Text;
             try
             {
@@ -353,6 +352,7 @@ namespace CRUD
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
 
-        }
+        } 
+     
     }
 }
