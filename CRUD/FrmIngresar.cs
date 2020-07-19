@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Data.SqlClient;
 
+
 namespace CRUD
 {
     public partial class FrmIngresar : Form
@@ -22,6 +23,7 @@ namespace CRUD
         public FrmIngresar()
         {
             InitializeComponent();
+           
         }
 
         private void FrmIngresar_Load(object sender, EventArgs e)
@@ -29,8 +31,10 @@ namespace CRUD
 
             //  this.datos_PersonasTableAdapter.Fill(this.tI2020DataSet.Datos_Personas);
             this.cargarGridPersonas();
+            
+
         }
-        private void cargarGridPersonas()
+       public void cargarGridPersonas()
         {
             DataTable dt = TIC.DatoPersonasDAO.getAll();
             this.dgPersonas.DataSource = dt;
@@ -277,17 +281,18 @@ namespace CRUD
         private void dgPersonas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-          try{  
+         /*try{  
                 txtdelete.Text = dgPersonas.CurrentCell.Value.ToString();
             }
             catch(Exception ex)
             {
                 MessageBox.Show("");
-            }
+            }*/
+            
 
         }
 
-        private void dgPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       private void dgPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
           
            // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());
@@ -302,7 +307,7 @@ namespace CRUD
                 // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());
                 string cedula = dgPersonas[2, fila].Value.ToString();
                 
-                string confirmMessage = string.Format("¿Está seguro de que desea eliminar a la persona de nombre {0}?"
+                string confirmMessage = string.Format("¿Está seguro de que desea eliminar a la persona de numero de cedula {0}?"
                     , grid.Rows[fila].Cells[2].Value);
                 if (MessageBox.Show(confirmMessage, "Eliminar Persona", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -312,7 +317,42 @@ namespace CRUD
                   
                     
                 }
+
+               
+
+                   
+
             }
+            if (grid.Columns[e.ColumnIndex].Name == "linkModificar")
+            {
+
+                int fila = e.RowIndex;
+
+                // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());
+                string cedula = dgPersonas[2, fila].Value.ToString();
+
+                string confirmMessage = string.Format("¿Está seguro que quiere modificar el registro de numero de cedula {0}?"
+                    , grid.Rows[fila].Cells[2].Value);
+                if (MessageBox.Show(confirmMessage, "Modificar Persona", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    
+                    
+                    DatosPersonas x = TIC.DatoPersonasDAO.getPersona(cedula);
+                    Modificar asereje = new Modificar(x);
+                    asereje.ShowDialog();
+                    cargarGridPersonas();
+
+
+                }
+
+
+
+            }
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

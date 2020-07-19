@@ -1,4 +1,5 @@
-﻿using CRUD.Modelo;
+﻿using CRUD;
+using CRUD.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -53,7 +54,7 @@ namespace TIC
             SqlConnection conn = new SqlConnection(cadenaConexion);
             //2. Definir y Cinfigurar la operacion a realizar en el motor de BDD 
             //escribir sentencia sql
-            string sql = "select  Cedula Cédula,Apellidos + ' ' + Nombres [NombreCompleto],Sexo Género," + "FechaNacimineto,Correo,Estatura_Cm " + "from Datos_Personas " +
+            string sql = "select  Cedula Cédula,Apellidos,Nombres,Sexo Género," + "FechaNacimineto,Correo,Estatura_Cm " + "from Datos_Personas " +
                 "order by apellidos,nombres";
             //2.1 Definir un adptador de datos: es un puente que permite pasa los datos de muestra , hacia el datatable
             SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
@@ -97,7 +98,63 @@ namespace TIC
             return x;
 
         }
-      
+        public static DatosPersonas getPersona(String scedula)
+        {
+           
+            SqlConnection conn = new SqlConnection(cadenaConexion);
+          
+            string sql = "select cedula,apellidos,Nombres,Sexo,Correo,FechaNacimineto,Estatura_Cm,Peso " +
+                "from Datos_Personas " +
+                "where cedula=@cedula";
+          
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            ad.SelectCommand.Parameters.AddWithValue("@cedula", scedula);
+        
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            DatosPersonas persona = new DatosPersonas();
+            if (dt.Rows.Count > 0) 
+            {
+                foreach (DataRow fila in dt.Rows)
+                {
+                   
+                    persona.Cedula = fila["cedula"].ToString();
+                    persona.Apellidos = fila["Apellidos"].ToString();
+                    persona.Nombres = fila["Nombres"].ToString();
+                    persona.Sexo = fila["Sexo"].ToString();
+                    persona.FechaNacimineto =DateTime.Parse( fila["FechaNacimineto"].ToString());
+                    persona.Correo = fila["Correo"].ToString();
+                    persona.Estatura = int.Parse(fila["Estatura_Cm"].ToString());
+                    persona.Peso = decimal.Parse(fila["Peso"].ToString());
+
+
+
+                }
+            }
+            
+            return persona;
+        }
+        public static int update (DatosPersonas datosPersonas)
+        {
+            SqlConnection conn = new SqlConnection(cadenaConexion);
+
+
+           string sql = " UPDATE Datos_Personas SET Apellidos=@Apellidos, Nombres=@Nombres, Sexo=@Sexo, FechaNacimineto=@FechaNacimineto, Correo=@Correo, Estatura_Cm=@Estatura_Cm, Peso=@Peso WHERE Cedula=@Cedula";
+            SqlCommand comando = new SqlCommand(sql, conn);
+            comando.Parameters.AddWithValue("@Cedula", datosPersonas.Cedula);
+            comando.Parameters.AddWithValue("@Apellidos", datosPersonas.Apellidos);
+            comando.Parameters.AddWithValue("@Nombres", datosPersonas.Nombres);
+            comando.Parameters.AddWithValue("@Sexo", datosPersonas.Sexo);
+            comando.Parameters.AddWithValue("@FechaNacimineto", datosPersonas.FechaNacimineto.Date);
+            comando.Parameters.AddWithValue("@Correo", datosPersonas.Correo);
+            comando.Parameters.AddWithValue("@Estatura_Cm", datosPersonas.Estatura);
+            comando.Parameters.AddWithValue("@Peso", datosPersonas.Peso);
+            conn.Open();
+            int x = comando.ExecuteNonQuery();
+            conn.Close();
+            return x;
+        }
+
 
     }
     
