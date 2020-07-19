@@ -54,12 +54,6 @@
     </Compile>
     <Compile Include="Modelo\DatoPersonasDAO.cs" />
     <Compile Include="Modelo\DatosPersonas.cs" />
-    <Compile Include="Modelo\Errordetxtbox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Modelo\Errordetxtbox.Designer.cs">
-      <DependentUpon>Errordetxtbox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\validar.cs" />
     <Compile Include="Modelo\validar_correo.cs" />
     <Compile Include="Modificar.cs">

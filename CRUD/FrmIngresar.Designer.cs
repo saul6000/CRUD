@@ -52,12 +52,12 @@
             this.btbdelete = new System.Windows.Forms.Button();
             this.error1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtdelete = new CRUD.Modelo.Errordetxtbox();
-            this.txtPeso = new CRUD.Modelo.Errordetxtbox();
-            this.txtEstatura = new CRUD.Modelo.Errordetxtbox();
-            this.txtCorreo = new CRUD.Modelo.Errordetxtbox();
-            this.txtNombres = new CRUD.Modelo.Errordetxtbox();
-            this.txtApellidos = new CRUD.Modelo.Errordetxtbox();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
+            this.txtNombres = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtEstatura = new System.Windows.Forms.TextBox();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.txtdelete = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tI2020DataSet)).BeginInit();
@@ -260,7 +260,6 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(326, 22);
             this.txtCedula.TabIndex = 33;
-            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // btbdelete
@@ -282,15 +281,41 @@
             // 
             this.errorP.ContainerControl = this;
             // 
-            // txtdelete
+            // txtApellidos
             // 
-            this.txtdelete.Location = new System.Drawing.Point(661, 302);
-            this.txtdelete.MaxLength = 10;
-            this.txtdelete.Name = "txtdelete";
-            this.txtdelete.Size = new System.Drawing.Size(170, 22);
-            this.txtdelete.TabIndex = 40;
-            this.txtdelete.validar = false;
-            this.txtdelete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
+            this.txtApellidos.Location = new System.Drawing.Point(140, 71);
+            this.txtApellidos.MaxLength = 60;
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(326, 22);
+            this.txtApellidos.TabIndex = 41;
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.Location = new System.Drawing.Point(140, 122);
+            this.txtNombres.MaxLength = 60;
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(326, 22);
+            this.txtNombres.TabIndex = 42;
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(140, 251);
+            this.txtCorreo.MaxLength = 40;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(326, 22);
+            this.txtCorreo.TabIndex = 43;
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
+            // 
+            // txtEstatura
+            // 
+            this.txtEstatura.Location = new System.Drawing.Point(140, 312);
+            this.txtEstatura.MaxLength = 3;
+            this.txtEstatura.Name = "txtEstatura";
+            this.txtEstatura.Size = new System.Drawing.Size(326, 22);
+            this.txtEstatura.TabIndex = 44;
+            this.txtEstatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatura_KeyPress);
             // 
             // txtPeso
             // 
@@ -298,48 +323,17 @@
             this.txtPeso.MaxLength = 7;
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(326, 22);
-            this.txtPeso.TabIndex = 38;
-            this.txtPeso.validar = false;
+            this.txtPeso.TabIndex = 45;
             this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
-            // txtEstatura
+            // txtdelete
             // 
-            this.txtEstatura.Location = new System.Drawing.Point(140, 300);
-            this.txtEstatura.MaxLength = 3;
-            this.txtEstatura.Name = "txtEstatura";
-            this.txtEstatura.Size = new System.Drawing.Size(326, 22);
-            this.txtEstatura.TabIndex = 37;
-            this.txtEstatura.validar = false;
-            this.txtEstatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstatura_KeyPress);
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Location = new System.Drawing.Point(140, 242);
-            this.txtCorreo.MaxLength = 40;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(326, 22);
-            this.txtCorreo.TabIndex = 36;
-            this.txtCorreo.validar = false;
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.Location = new System.Drawing.Point(140, 117);
-            this.txtNombres.MaxLength = 60;
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(326, 22);
-            this.txtNombres.TabIndex = 35;
-            this.txtNombres.validar = false;
-            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Location = new System.Drawing.Point(140, 66);
-            this.txtApellidos.MaxLength = 60;
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(326, 22);
-            this.txtApellidos.TabIndex = 34;
-            this.txtApellidos.validar = false;
-            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
+            this.txtdelete.Location = new System.Drawing.Point(679, 312);
+            this.txtdelete.MaxLength = 10;
+            this.txtdelete.Name = "txtdelete";
+            this.txtdelete.Size = new System.Drawing.Size(207, 22);
+            this.txtdelete.TabIndex = 46;
+            this.txtdelete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // FrmIngresar
             // 
@@ -347,12 +341,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 523);
             this.Controls.Add(this.txtdelete);
-            this.Controls.Add(this.btbdelete);
             this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.txtEstatura);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtNombres);
             this.Controls.Add(this.txtApellidos);
+            this.Controls.Add(this.btbdelete);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.dgPersonas);
             this.Controls.Add(this.btnCerrar);
@@ -400,17 +394,17 @@
         private System.Windows.Forms.BindingSource datosPersonasBindingSource;
         private TI2020DataSetTableAdapters.Datos_PersonasTableAdapter datos_PersonasTableAdapter;
         private System.Windows.Forms.TextBox txtCedula;
-        private Modelo.Errordetxtbox txtPeso;
-        private Modelo.Errordetxtbox txtEstatura;
-        private Modelo.Errordetxtbox txtCorreo;
-        private Modelo.Errordetxtbox txtNombres;
-        private Modelo.Errordetxtbox txtApellidos;
-        private Modelo.Errordetxtbox txtdelete;
         private System.Windows.Forms.Button btbdelete;
         private System.Windows.Forms.DataGridViewLinkColumn linkModificar;
         private System.Windows.Forms.DataGridViewLinkColumn linkEliminar;
         private System.Windows.Forms.ErrorProvider error1;
         public System.Windows.Forms.ErrorProvider errorP;
         public System.Windows.Forms.DataGridView dgPersonas;
+        private System.Windows.Forms.TextBox txtdelete;
+        private System.Windows.Forms.TextBox txtPeso;
+        private System.Windows.Forms.TextBox txtEstatura;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtNombres;
+        private System.Windows.Forms.TextBox txtApellidos;
     }
 }

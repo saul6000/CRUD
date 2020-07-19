@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtcedula = new System.Windows.Forms.TextBox();
             this.btbCambios = new System.Windows.Forms.Button();
             this.txtApellidos = new System.Windows.Forms.TextBox();
@@ -45,6 +46,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.cmbGenero = new System.Windows.Forms.ComboBox();
+            this.error1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btbcerrar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.error1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtcedula
@@ -54,7 +58,6 @@
             this.txtcedula.Name = "txtcedula";
             this.txtcedula.Size = new System.Drawing.Size(285, 22);
             this.txtcedula.TabIndex = 0;
-            this.txtcedula.TextChanged += new System.EventHandler(this.txtcedula_TextChanged);
             // 
             // btbCambios
             // 
@@ -200,11 +203,27 @@
             this.cmbGenero.Size = new System.Drawing.Size(296, 24);
             this.cmbGenero.TabIndex = 18;
             // 
+            // error1
+            // 
+            this.error1.ContainerControl = this;
+            // 
+            // btbcerrar
+            // 
+            this.btbcerrar.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbcerrar.Location = new System.Drawing.Point(500, 253);
+            this.btbcerrar.Name = "btbcerrar";
+            this.btbcerrar.Size = new System.Drawing.Size(132, 54);
+            this.btbcerrar.TabIndex = 19;
+            this.btbcerrar.Text = "Cerrar";
+            this.btbcerrar.UseVisualStyleBackColor = true;
+            this.btbcerrar.Click += new System.EventHandler(this.btbcerrar_Click);
+            // 
             // Modificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 459);
+            this.Controls.Add(this.btbcerrar);
             this.Controls.Add(this.cmbGenero);
             this.Controls.Add(this.dtFechaNacimiento);
             this.Controls.Add(this.label7);
@@ -225,6 +244,7 @@
             this.Name = "Modificar";
             this.Text = "Modificar";
             this.Load += new System.EventHandler(this.Modificar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.error1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,7 +267,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtFechaNacimiento;
-        public System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.ComboBox cmbGenero;
+        private System.Windows.Forms.ErrorProvider error1;
+        private System.Windows.Forms.Button btbcerrar;
+        private System.Windows.Forms.TextBox txtApellidos;
     }
 }

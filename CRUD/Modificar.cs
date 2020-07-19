@@ -27,29 +27,71 @@ namespace CRUD
 
         }
 
-        private void txtcedula_TextChanged(object sender, EventArgs e)
-        {
-
-           
-
-
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             TIC.DatosPersonas personas = new TIC.DatosPersonas();
-            DataTable dt = TIC.DatoPersonasDAO.getAll();
-            
-            FrmIngresar ps =new  FrmIngresar();
-            
+           
+
+            if (txtApellidos.Text.Trim() == "")
+            {
+                error1.SetError(txtApellidos, "Introduzca el apellido...");
+                txtApellidos.Focus();
+                return;
+            }
+
+            else
+            {
+                error1.Clear();
+            }
+            if (txtNombres.Text.Trim() == "")
+            {
+                error1.SetError(txtNombres, "Introduzca el Nombre...");
+                txtNombres.Focus();
+                return;
+            }
+            else
+            {
+                error1.Clear();
+            }
+            if (cmbGenero.Text.Trim() == "")
+            {
+                error1.SetError(cmbGenero, "Introduzca el sexo ");
+                this.cmbGenero.Focus();
+                return;
+            }
+            else
+            {
+                error1.Clear();
+            }
+
+            if (this.cmbGenero.Text == "Femenino")
+            {
+                this.cmbGenero.Text = "Femenino";
+            }
+            else
+            {
+                this.cmbGenero.Text = "Masculino";
+            }
             personas.Cedula = txtcedula.Text;
             personas.Apellidos = txtApellidos.Text;
             personas.Nombres = txtNombres.Text;
             personas.Sexo = cmbGenero.Text;
             personas.FechaNacimineto = dtFechaNacimiento.Value;
-            
+            validar_correo ps = new validar_correo();
+            if (ps.Email_Valido(this.txtCorreo.Text) == false)
+            {
+                error1.SetError(this.txtCorreo, " Ingrese un Email Válido");
+                this.txtCorreo.Focus();
+                return;
+            }
+            else
+            {
+                error1.Clear();
+                
+
+            }
             personas.Correo = txtCorreo.Text;
+            
             personas.Estatura = int.Parse(txtEstatura.Text);
             personas.Peso = decimal.Parse(txtPeso.Text);
             int x = 0;
@@ -83,6 +125,11 @@ namespace CRUD
         {
             
 
+        }
+
+        private void btbcerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

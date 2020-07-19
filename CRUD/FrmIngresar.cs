@@ -34,7 +34,7 @@ namespace CRUD
             
 
         }
-       public void cargarGridPersonas()
+       private void cargarGridPersonas()
         {
             DataTable dt = TIC.DatoPersonasDAO.getAll();
             this.dgPersonas.DataSource = dt;
@@ -210,8 +210,8 @@ namespace CRUD
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             txtdelete.Clear();
-            txtCorreo.Clear();
             txtNombres.Clear();
+            txtCorreo.Clear();
             txtApellidos.Clear();
             txtCedula.Clear();
             txtPeso.Clear();
@@ -225,28 +225,7 @@ namespace CRUD
             Application.Exit();
         }
 
-        private void txtNombres_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtApellidos_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtEstatura_TextChanged(object sender, EventArgs e)
-        {
-           
-
-        }
-
-        private void txtPeso_TextChanged(object sender, EventArgs e)
-        {
-          
-
-           
-        }
+ 
 
         private void btbdelete_Click(object sender, EventArgs e)
         {
@@ -279,7 +258,6 @@ namespace CRUD
 
         private void dgPersonas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
          /*try{  
                 txtdelete.Text = dgPersonas.CurrentCell.Value.ToString();
             }
@@ -288,24 +266,16 @@ namespace CRUD
                 MessageBox.Show("");
             }*/
             
-
         }
-
        private void dgPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
-           // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());
-           
-           
+        {         
+           // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());           
             DataGridView grid = (DataGridView)sender;
             if (grid.Columns[e.ColumnIndex].Name == "linkEliminar")
-            {
-               
-                int fila = e.RowIndex;
-                
+            {               
+                int fila = e.RowIndex;            
                 // MessageBox.Show("Fila: " + fila.ToString() + ", col: " + col.ToString());
-                string cedula = dgPersonas[2, fila].Value.ToString();
-                
+                string cedula = dgPersonas[2, fila].Value.ToString();               
                 string confirmMessage = string.Format("¿Está seguro de que desea eliminar a la persona de numero de cedula {0}?"
                     , grid.Rows[fila].Cells[2].Value);
                 if (MessageBox.Show(confirmMessage, "Eliminar Persona", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -315,12 +285,8 @@ namespace CRUD
                     int x = TIC.DatoPersonasDAO.btbdelete(cedula);
                   
                     
-                }
-
-               
-
-                   
-
+                }              
+                
             }
             if (grid.Columns[e.ColumnIndex].Name == "linkModificar")
             {
@@ -334,25 +300,17 @@ namespace CRUD
                     , grid.Rows[fila].Cells[2].Value);
                 if (MessageBox.Show(confirmMessage, "Modificar Persona", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    
-                    
+                                       
                     DatosPersonas x = TIC.DatoPersonasDAO.getPersona(cedula);
                     Modificar asereje = new Modificar(x);
                     asereje.ShowDialog();
                     cargarGridPersonas();
-
-
                 }
-
-
 
             }
         }
 
-        private void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-
-        } 
+       
      
     }
 }
