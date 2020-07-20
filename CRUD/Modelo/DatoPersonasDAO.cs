@@ -64,6 +64,24 @@ namespace TIC
             return dt;
 
         }
+        public static DataTable GetpersonasEdad()
+        {
+
+            //1. definir y configurar conexión
+            SqlConnection conn = new SqlConnection(cadenaConexion);
+            //2. Definir y Cinfigurar la operacion a realizar en el motor de BDD 
+            //escribir sentencia sql
+            string sql = "select  Cedula Cédula" +
+                ",upper(Apellidos+' '+Nombres)+'('+ltrim(str(DATEDIFF(year,FechaNacimineto,GETDATE()))) +' años)'[Nombre Completo],Sexo Género," + "FechaNacimineto,Correo,Estatura_Cm,Peso " + "from Datos_Personas " +
+                "order by Apellidos,Nombres";
+            //2.1 Definir un adptador de datos: es un puente que permite pasa los datos de muestra , hacia el datatable
+            SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
+            //3 recuperamos los datos 
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
         public static Boolean existeCedula(string scedula)
         {
         
@@ -104,12 +122,13 @@ namespace TIC
            
             SqlConnection conn = new SqlConnection(cadenaConexion);
           
-            string sql = "select cedula,apellidos,Nombres,Sexo,Correo,FechaNacimineto,Estatura_Cm,Peso " +
-                "from Datos_Personas " +
-                "where cedula=@cedula";
+            string sql = "select Cedula,Apellidos,Nombres,Sexo,Correo,FechaNacimineto,Estatura_Cm,Peso " +
+                "from Datos_Personas " + 
+                "where Cedula=@Cedula "+ 
+                "order by Apellidos,Nombres" ;
           
             SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
-            ad.SelectCommand.Parameters.AddWithValue("@cedula", scedula);
+            ad.SelectCommand.Parameters.AddWithValue("@Cedula", scedula);
         
             DataTable dt = new DataTable();
             ad.Fill(dt);
@@ -119,7 +138,7 @@ namespace TIC
                 foreach (DataRow fila in dt.Rows)
                 {
                    
-                    persona.Cedula = fila["cedula"].ToString();
+                    persona.Cedula = fila["Cedula"].ToString();
                     persona.Apellidos = fila["Apellidos"].ToString();
                     persona.Nombres = fila["Nombres"].ToString();
                     persona.Sexo = fila["Sexo"].ToString();
@@ -127,7 +146,7 @@ namespace TIC
                     persona.Correo = fila["Correo"].ToString();
                     persona.Estatura = int.Parse(fila["Estatura_Cm"].ToString());
                     persona.Peso = decimal.Parse(fila["Peso"].ToString());
-
+                    break; //abandonar bucle
 
 
                 }

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBusqueda.Designer.cs">
+      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIngresar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TI2020DataSet2.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmBusqueda.resx">
+      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresar.resx">
       <DependentUpon>FrmIngresar.cs</DependentUpon>
     </EmbeddedResource>

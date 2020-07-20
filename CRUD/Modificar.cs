@@ -91,9 +91,15 @@ namespace CRUD
 
             }
             personas.Correo = txtCorreo.Text;
-            
+            try
+            {
             personas.Estatura = int.Parse(txtEstatura.Text);
             personas.Peso = decimal.Parse(txtPeso.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
             int x = 0;
            
             
@@ -117,7 +123,7 @@ namespace CRUD
             }
             finally
             {
-                    btbCambios.Enabled = true;
+                  
                 this.Close();
             }
             
