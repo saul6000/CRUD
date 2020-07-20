@@ -55,6 +55,7 @@
             // 
             this.txtcedula.Enabled = false;
             this.txtcedula.Location = new System.Drawing.Point(186, 30);
+            this.txtcedula.MaxLength = 10;
             this.txtcedula.Name = "txtcedula";
             this.txtcedula.Size = new System.Drawing.Size(285, 22);
             this.txtcedula.TabIndex = 0;
@@ -73,6 +74,7 @@
             // txtApellidos
             // 
             this.txtApellidos.Location = new System.Drawing.Point(186, 79);
+            this.txtApellidos.MaxLength = 60;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(285, 22);
             this.txtApellidos.TabIndex = 2;
@@ -80,6 +82,7 @@
             // txtNombres
             // 
             this.txtNombres.Location = new System.Drawing.Point(186, 138);
+            this.txtNombres.MaxLength = 60;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(285, 22);
             this.txtNombres.TabIndex = 3;
@@ -87,6 +90,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(186, 304);
+            this.txtCorreo.MaxLength = 40;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(285, 22);
             this.txtCorreo.TabIndex = 6;
@@ -94,6 +98,7 @@
             // txtEstatura
             // 
             this.txtEstatura.Location = new System.Drawing.Point(186, 353);
+            this.txtEstatura.MaxLength = 3;
             this.txtEstatura.Name = "txtEstatura";
             this.txtEstatura.Size = new System.Drawing.Size(285, 22);
             this.txtEstatura.TabIndex = 7;
@@ -101,6 +106,7 @@
             // txtPeso
             // 
             this.txtPeso.Location = new System.Drawing.Point(186, 404);
+            this.txtPeso.MaxLength = 7;
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(285, 22);
             this.txtPeso.TabIndex = 8;

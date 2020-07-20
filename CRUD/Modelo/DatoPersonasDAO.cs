@@ -54,7 +54,7 @@ namespace TIC
             SqlConnection conn = new SqlConnection(cadenaConexion);
             //2. Definir y Cinfigurar la operacion a realizar en el motor de BDD 
             //escribir sentencia sql
-            string sql = "select  Cedula Cédula,Apellidos,Nombres,Sexo Género," + "FechaNacimineto,Correo,Estatura_Cm " + "from Datos_Personas " +
+            string sql = "select  Cedula Cédula,Apellidos,Nombres,Sexo Género," + "FechaNacimineto,Correo,Estatura_Cm,Peso " + "from Datos_Personas " +
                 "order by apellidos,nombres";
             //2.1 Definir un adptador de datos: es un puente que permite pasa los datos de muestra , hacia el datatable
             SqlDataAdapter ad = new SqlDataAdapter(sql, conn);
