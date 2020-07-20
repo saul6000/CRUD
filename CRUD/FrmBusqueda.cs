@@ -59,7 +59,7 @@ namespace CRUD
             {
                 this.dtFechaNacimiento.Value = personas.FechaNacimineto; 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //MessageBox.Show(ex.Message.ToString());
             }

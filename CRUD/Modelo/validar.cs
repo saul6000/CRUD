@@ -57,7 +57,7 @@ namespace Tarea_ListaGénericas
                 decimal d = Convert.ToDecimal(CajaDeTexto.Text);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 CajaDeTexto.Text = "0";
                 CajaDeTexto.Select(0, CajaDeTexto.Text.Length);
