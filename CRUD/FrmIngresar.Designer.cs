@@ -46,8 +46,8 @@
             this.linkModificar = new System.Windows.Forms.DataGridViewLinkColumn();
             this.linkEliminar = new System.Windows.Forms.DataGridViewLinkColumn();
             this.datosPersonasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tI2020DataSet = new CRUD.TI2020DataSet();
-            this.datos_PersonasTableAdapter = new CRUD.TI2020DataSetTableAdapters.Datos_PersonasTableAdapter();
+       
+       
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.btbdelete = new System.Windows.Forms.Button();
             this.error1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -60,7 +60,7 @@
             this.txtdelete = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tI2020DataSet)).BeginInit();
+    
             ((System.ComponentModel.ISupportInitialize)(this.error1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             this.SuspendLayout();
@@ -242,16 +242,16 @@
             // datosPersonasBindingSource
             // 
             this.datosPersonasBindingSource.DataMember = "Datos_Personas";
-            this.datosPersonasBindingSource.DataSource = this.tI2020DataSet;
+ 
             // 
             // tI2020DataSet
             // 
-            this.tI2020DataSet.DataSetName = "TI2020DataSet";
-            this.tI2020DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+   
+        
             // 
             // datos_PersonasTableAdapter
             // 
-            this.datos_PersonasTableAdapter.ClearBeforeFill = true;
+           
             // 
             // txtCedula
             // 
@@ -367,7 +367,7 @@
             this.Load += new System.EventHandler(this.FrmIngresar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tI2020DataSet)).EndInit();
+        
             ((System.ComponentModel.ISupportInitialize)(this.error1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.ResumeLayout(false);
@@ -390,9 +390,9 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.ComboBox cmbSexo;
-        private TI2020DataSet tI2020DataSet;
+  
         private System.Windows.Forms.BindingSource datosPersonasBindingSource;
-        private TI2020DataSetTableAdapters.Datos_PersonasTableAdapter datos_PersonasTableAdapter;
+    
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Button btbdelete;
         private System.Windows.Forms.DataGridViewLinkColumn linkModificar;
