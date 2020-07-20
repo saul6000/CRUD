@@ -151,8 +151,7 @@ namespace TIC
 
                 }
             }
-            
-            return persona;
+                return persona;
         }
         public static int update (DatosPersonas datosPersonas)
         {
