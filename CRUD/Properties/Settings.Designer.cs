@@ -32,5 +32,16 @@ namespace CRUD.Properties {
                 return ((string)(this["TI2020ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JOHNDAY;Initial Catalog=TI2020;Persist Security Info=True;User ID=Saú" +
+            "l_Mendoza;Password=123456")]
+        public string TI2020ConnectionString1 {
+            get {
+                return ((string)(this["TI2020ConnectionString1"]));
+            }
+        }
     }
 }

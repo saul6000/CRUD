@@ -46,8 +46,6 @@
             this.linkModificar = new System.Windows.Forms.DataGridViewLinkColumn();
             this.linkEliminar = new System.Windows.Forms.DataGridViewLinkColumn();
             this.datosPersonasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-       
-       
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.btbdelete = new System.Windows.Forms.Button();
             this.error1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -60,7 +58,6 @@
             this.txtdelete = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).BeginInit();
-    
             ((System.ComponentModel.ISupportInitialize)(this.error1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             this.SuspendLayout();
@@ -242,16 +239,6 @@
             // datosPersonasBindingSource
             // 
             this.datosPersonasBindingSource.DataMember = "Datos_Personas";
- 
-            // 
-            // tI2020DataSet
-            // 
-   
-        
-            // 
-            // datos_PersonasTableAdapter
-            // 
-           
             // 
             // txtCedula
             // 
@@ -367,7 +354,6 @@
             this.Load += new System.EventHandler(this.FrmIngresar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPersonas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosPersonasBindingSource)).EndInit();
-        
             ((System.ComponentModel.ISupportInitialize)(this.error1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.ResumeLayout(false);

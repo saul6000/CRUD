@@ -32,7 +32,9 @@ namespace CRUD
         }
         private void FrmBusqueda_Load(object sender, EventArgs e)
         {
+            this.cmCedula.SelectedIndexChanged-=new System.EventHandler(this.cmCedula_SelectedIndexChanged);
             this.cargarComboPersonas();
+            this.cmCedula.SelectedIndexChanged += new System.EventHandler(this.cmCedula_SelectedIndexChanged);
         }
         private void cargarPersona(TIC.DatosPersonas personas)
         {
@@ -55,14 +57,10 @@ namespace CRUD
             {
                 this.cmbSexo.Text = "Femenino";
             }
-            try
-            {
+           
+           
                 this.dtFechaNacimiento.Value = personas.FechaNacimineto; 
-            }
-            catch (Exception )
-            {
-                //MessageBox.Show(ex.Message.ToString());
-            }
+           
             this.txtCorreo.Text = personas.Correo;
             this.txtEstatura.Text = personas.Estatura.ToString();
             this.txtPeso.Text = personas.Peso.ToString();
